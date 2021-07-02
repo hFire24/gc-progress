@@ -1,5 +1,19 @@
 {
   "name": "gc-progress",
   "version": "1.0.0",
-  "license": "GPL-3.0-or-later"
+  "description": "General Conference Progress Tracker",
+  "main": "index.js",
+  "scripts": {
+    "test": "console.log('hello world');"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hFire24/gc-progress.git"
+  },
+  "author": "hFire24",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hFire24/gc-progress/issues"
+  },
+  "homepage": "https://github.com/hFire24/gc-progress#readme"
 }
