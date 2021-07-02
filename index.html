@@ -1,0 +1,159 @@
+<!DoctYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Get closer to god.</title>
+    <link href="relax.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="icon-meditate.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <style>
+      a.conference-link {
+        color:darkblue;
+      }
+
+      a.conference-link:hover {
+        color:teal;
+      }
+
+      a.conference-link:active {
+        color:green;
+      }
+
+      table {
+        border-collapse:collapse;
+        max-width:100%;
+      }
+
+      th, td {
+        border:1px solid black;
+      }
+
+      th {
+        white-space:nowrap;
+      }
+
+      td {
+        width: 2em;
+      }
+
+      .filled {
+        background-color:darkblue;
+      }
+
+      .skip {
+        background-color:darkred;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Your General Conference Progress</h1>
+    <div class='small space'>It's highly recommended that you say a prayer before watching a conference talk. Dark blue squares indicate watched talks, dark red squares indicate skipped talks, and blank squares indicate unwatched talks. Each square corresponds to a talk from each session. Double click a square to mark it as watched.</div>
+    <div style='text-align:left;'><strong><a class='conference-link' href='https://www.churchofjesuschrist.org/general-conference/2010/10?lang=eng'>October 2010</a></strong></div>
+    <table>
+      <tbody id='oct10'>
+        <tr id='oct10A'>
+          <th>Sat. M</th>
+          <td id='oct10A1'></td>
+          <td id='oct10A2'></td>
+          <td id='oct10A3'></td>
+          <td id='oct10A4'></td>
+          <td id='oct10A5'></td>
+          <td id='oct10A6'></td>
+          <td id='oct10A7'></td>
+        </tr>
+        <tr id='oct10B'>
+          <th>Sat. A</th>
+          <td id='oct10B1'></td>
+          <td id='oct10B2'></td>
+          <td id='oct10B3'></td>
+          <td id='oct10B4'></td>
+          <td id='oct10B5'></td>
+          <td id='oct10B6'></td>
+          <td id='oct10B7'></td>
+          <td id='oct10B8'></td>
+        </tr>
+        <tr id='oct10C'>
+          <th>Sat. E</th>
+          <td id='oct10C1'></td>
+          <td id='oct10C2'></td>
+          <td id='oct10C3'></td>
+          <td id='oct10C4'></td>
+          <td id='oct10C5'></td>
+          <td id='oct10C6'></td>
+        </tr>
+        <tr id='oct10D'>
+          <th>Sun. M</th>
+          <td id='oct10D1'></td>
+          <td id='oct10D2'></td>
+          <td id='oct10D3'></td>
+          <td id='oct10D4'></td>
+          <td id='oct10D5'></td>
+          <td id='oct10D6'></td>
+        </tr>
+        <tr id='oct10E'>
+          <th>Sun. A</th>
+          <td id='oct10E1'></td>
+          <td id='oct10E2'></td>
+          <td id='oct10E3'></td>
+          <td id='oct10E4'></td>
+          <td id='oct10E5'></td>
+          <td id='oct10E6'></td>
+          <td id='oct10E7'></td>
+          <td id='oct10E8'></td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <strong>Other Talks Completed</strong><br>
+    <div class='small'>
+      <a href="https://youtu.be/iC4aV5WutY0">April 2010: Place No More for the Enemy of My Soul</a><br>
+      <a href="https://youtu.be/G0nvz7QXVDg">April 2007: Stay On The Path</a><br>
+      <a href="https://youtu.be/EQpmPlOIhVU">October 2004: The Blessings of a Proper Fast</a><br>
+      <a href="https://youtu.be/vWCUNWQy-J4">October 2008: Happiness, Your Heritage</a><br>
+      <a href="https://youtu.be/__-9MapYDGQ">April 2019: Build a Fortress of Spirituality and Protection</a>
+    </div>
+    <script>
+      var squares = document.getElementsByTagName('td');
+      console.log(squares);
+
+      //For saving data
+      /*for(var i in squares) {
+        console.log(i + ": " + squares[i].className);
+        if(squares[i].className === "filled")
+          localStorage.setItem(squares[i].id,"filled");
+        else if(squares[i].className === "skip")
+          localStorage.setItem(squares[i].id,"skip");
+      }*/
+
+      //For reading data
+      for(var i in squares) {
+        console.log(localStorage.getItem(squares[i].id));
+        if(localStorage.getItem(squares[i].id))
+          squares[i].className = localStorage.getItem(squares[i].id);
+          //console.log('fumo')
+      }
+
+      function fill(evt) {
+        if(evt.target.id)
+          switch(evt.target.classList.value) {
+            case 'filled':
+              evt.target.classList.remove('filled');
+              evt.target.classList.add('skip');
+              localStorage.setItem(evt.target.id,'skip');
+              break;
+            case 'skip':
+              evt.target.classList.remove('skip');
+              localStorage.removeItem(evt.target.id);
+              break;
+            default:
+              evt.target.classList.add('filled');
+              localStorage.setItem(evt.target.id,'filled');
+          }
+
+      }
+      oct10.addEventListener('dblclick',fill,'false');
+
+    </script>
+  </body>
+</html>
