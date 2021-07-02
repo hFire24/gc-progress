@@ -4,7 +4,8 @@
   "description": "General Conference Progress Tracker",
   "main": "index.js",
   "scripts": {
-    "test": "console.log('hello world');"
+    "test": "echo \"Error: no test specified\" && exit 1",
+	 "start": "node index.js"
   },
   "repository": {
     "type": "git",
